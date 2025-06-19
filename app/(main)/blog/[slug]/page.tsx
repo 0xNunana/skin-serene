@@ -2,7 +2,7 @@
 
 import { blogPosts } from "@/data/blog";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import type { Metadata } from "next";
 
 import Link from "next/link";
@@ -43,13 +43,9 @@ import { Badge } from "@/components/ui/badge";
 //   };
 // }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+export default async function BlogPostPage() {
+  const params = useParams();
+  const post = blogPosts.find((p) => p.slug === params.slug);
 
   if (!post) {
     notFound();

@@ -11,7 +11,7 @@ import {
   Tag,
 } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProductCard from "@/components/products/ProductCard";
@@ -35,13 +35,9 @@ import ProductCard from "@/components/products/ProductCard";
 //   };
 // }
 
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ productId: string }>;
-}) {
-  const { productId } = await params;
-  const product = products.find((p) => p.id === productId);
+export default function ProductDetailPage() {
+  const params = useParams();
+  const product = products.find((p) => p.id === params.productId);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
 
