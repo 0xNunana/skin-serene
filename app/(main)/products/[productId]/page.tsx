@@ -35,12 +35,13 @@ import ProductCard from "@/components/products/ProductCard";
 //   };
 // }
 
-export default function ProductDetailPage({
+export default async function ProductDetailPage({
   params,
 }: {
-  params: { productId: string };
+  params: Promise<{ productId: string }>;
 }) {
-  const product = products.find((p) => p.id === params.productId);
+  const { productId } = await params;
+  const product = products.find((p) => p.id === productId);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
 

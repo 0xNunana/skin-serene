@@ -4,7 +4,7 @@ import { blogPosts } from "@/data/blog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+
 import Link from "next/link";
 import { CalendarDays, UserCircle, ChevronLeft, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -109,8 +109,6 @@ export default async function BlogPostPage({
           />
         </div>
       )}
-
-      <MarkdownRenderer content={post.content} />
 
       {/* You could add related posts or a comment section here */}
       <div className="mt-12 border-t pt-8">
