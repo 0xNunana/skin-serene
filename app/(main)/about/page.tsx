@@ -161,7 +161,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
           >
             <Image
-              src="/ceo.jpg"
+              src="/lorriane.jpeg"
               alt="Founder of Skin Serene Cosmetics"
               width={500}
               height={600}
